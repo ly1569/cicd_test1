@@ -8,6 +8,7 @@
 
 name: Java CI with Maven
 
+# 在对master分支进行推送和拉取的时候进行构建，测试，等操作
 on:
   push:
     branches: [ "master" ]
@@ -28,7 +29,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file xm-animal-manager/springboot/pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
