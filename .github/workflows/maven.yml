@@ -382,9 +382,16 @@ jobs:
           path: xm-animal-manager/vue/dist
       
       - name: Deploy to Server
-        run: |
-          scp xm-animal-manager/springboot/target/*.jar 757815670@qq.com:/path/to/backend/
-          scp -r xm-animal-manager/vue/dist/* 757815670@qq.com:/path/to/frontend/
+        # run: |
+        #   scp xm-animal-manager/springboot/target/*.jar 106.75.9.111@root:/path/to/backend/
+        #   scp -r xm-animal-manager/vue/dist/* 757815670@qq.com:/path/to/frontend/
           
-          # Optional: Restart the backend service if needed
-          #ssh 757815670@qq.com 'sudo systemctl restart my-backend-service'
+        #   # Optional: Restart the backend service if needed
+        #   ssh 757815670@qq.com 'sudo systemctl restart my-backend-service'
+        run: |
+              scp xm-animal-manager/springboot/target/*.jar root@106.75.9.111:/path/to/backend/
+              scp -r xm-animal-manager/vue/dist/* root@106.75.9.111:/path/to/frontend/
+              
+              # Optional: Restart the backend service if needed
+              ssh root@106.75.9.111 -p 22 'sudo systemctl restart your_backend_service'
+
