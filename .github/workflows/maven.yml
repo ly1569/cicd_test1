@@ -383,8 +383,8 @@ jobs:
       
       - name: Deploy to Server
         run: |
-          scp xm-animal-manager/springboot/target/*.jar username@example.com:/path/to/backend/
-          scp -r xm-animal-manager/vue/dist/* username@example.com:/path/to/frontend/
+          scp xm-animal-manager/springboot/target/*.jar 757815670@qq.com:/path/to/backend/
+          scp -r xm-animal-manager/vue/dist/* 757815670@qq.com:/path/to/frontend/
           
           # Optional: Restart the backend service if needed
-          ssh username@example.com 'sudo systemctl restart my-backend-service'
+          ssh 757815670@qq.com 'sudo systemctl restart my-backend-service'
