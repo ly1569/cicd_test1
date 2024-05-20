@@ -393,5 +393,6 @@ jobs:
               scp -r xm-animal-manager/vue/dist/* root@106.75.9.111:/path/to/frontend/
               
               # Optional: Restart the backend service if needed
-              ssh root@106.75.9.111 -p 22 'sudo systemctl restart your_backend_service'
+              echo "lagou123456789!" | sshpass -p - ssh root@106.75.9.111 -p 22 'sudo systemctl restart your_backend_service'
+
 
