@@ -387,4 +387,4 @@ jobs:
           scp -r xm-animal-manager/vue/dist/* 757815670@qq.com:/path/to/frontend/
           
           # Optional: Restart the backend service if needed
-          ssh 757815670@qq.com 'sudo systemctl restart my-backend-service'
+          #ssh 757815670@qq.com 'sudo systemctl restart my-backend-service'
