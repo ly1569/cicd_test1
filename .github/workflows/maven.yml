@@ -84,15 +84,15 @@ jobs:
       
       - name: Install dependencies and build
         run: |
-          cd xm-animal-manager/frontend  # 进入前端项目目录
+          cd xm-animal-manager/vue  # 进入前端项目目录
           npm install
           npm run build
 
       - name: Save frontend build artifact
         uses: actions/upload-artifact@v2
         with:
-          name: frontend-build
-          path: xm-animal-manager/frontend/build
+          name: vue-build
+          path: xm-animal-manager/vue/build
 
   deploy:
     runs-on: ubuntu-latest
@@ -110,8 +110,8 @@ jobs:
       - name: Download frontend build
         uses: actions/download-artifact@v2
         with:
-          name: frontend-build
-          path: xm-animal-manager/frontend/build
+          name: vue-build
+          path: xm-animal-manager/vue/build
       
       - name: Deploy to Server
         env:
@@ -120,7 +120,7 @@ jobs:
           PASSWORD: ${{ secrets.DEPLOY_PASS }}
         run: |
           sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no xm-animal-manager/springboot/target/*.jar $USERNAME@$HOST:/path/to/backend/
-          sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no -r xm-animal-manager/frontend/build/* $USERNAME@$HOST:/path/to/frontend/
+          sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no -r xm-animal-manager/vue/build/* $USERNAME@$HOST:/path/to/frontend/
           
           # Optional: Restart the backend service if needed
           sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no $USERNAME@$HOST 'sudo systemctl restart my-backend-service'
