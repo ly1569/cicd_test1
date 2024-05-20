@@ -388,11 +388,18 @@ jobs:
           
         #   # Optional: Restart the backend service if needed
         #   ssh 757815670@qq.com 'sudo systemctl restart my-backend-service'
+        # run: |
+        #       scp xm-animal-manager/springboot/target/*.jar root@106.75.9.111:/path/to/backend/
+        #       scp -r xm-animal-manager/vue/dist/* root@106.75.9.111:/path/to/frontend/
+              
+        #       # Optional: Restart the backend service if needed
+        #       echo "lagou123456789!" | sshpass -p - ssh root@106.75.9.111 -p 22 'sudo systemctl restart your_backend_service'
+
         run: |
-              scp xm-animal-manager/springboot/target/*.jar root@106.75.9.111:/path/to/backend/
-              scp -r xm-animal-manager/vue/dist/* root@106.75.9.111:/path/to/frontend/
+              sshpass -p lagou123456789! scp xm-animal-manager/springboot/target/*.jar root@106.75.9.111:/path/to/backend/
+              sshpass -p lagou123456789! scp -r xm-animal-manager/vue/dist/* root@106.75.9.111:/path/to/frontend/
               
               # Optional: Restart the backend service if needed
-              echo "lagou123456789!" | sshpass -p - ssh root@106.75.9.111 -p 22 'sudo systemctl restart your_backend_service'
+              sshpass -p lagou123456789! ssh root@106.75.9.111 'sudo systemctl restart my-backend-service'
 
 
