@@ -395,11 +395,12 @@ jobs:
         #       # Optional: Restart the backend service if needed
         #       echo "lagou123456789!" | sshpass -p - ssh root@106.75.9.111 -p 22 'sudo systemctl restart your_backend_service'
 
+      - name: Deploy to Server
         run: |
-              sshpass -p lagou123456789! scp xm-animal-manager/springboot/target/*.jar root@106.75.9.111:/path/to/backend/
-              sshpass -p lagou123456789! scp -r xm-animal-manager/vue/dist/* root@106.75.9.111:/path/to/frontend/
-              
-              # Optional: Restart the backend service if needed
-              sshpass -p lagou123456789! ssh root@106.75.9.111 'sudo systemctl restart my-backend-service'
+          sshpass -p 'Ly13579.' scp xm-animal-manager/springboot/target/*.jar luyou@192.168.56.1:/D/to/backend/
+          sshpass -p 'Ly13579.' scp -r xm-animal-manager/vue/dist/* luyou@192.168.56.1:/path/to/frontend/
+          
+          # Optional: Restart the backend service if needed
+          sshpass -p 'Ly13579.' ssh luyou@192.168.56.1 'sudo systemctl restart my-backend-service'
 
 
