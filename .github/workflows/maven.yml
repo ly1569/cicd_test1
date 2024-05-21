@@ -466,27 +466,27 @@ jobs:
           name: frontend-build
           path: xm-animal-manager/vue/dist
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build-backend, build-frontend]
-    name: Deploy to Server
-    steps:
-      - uses: actions/checkout@v4
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: [build-backend, build-frontend]
+  #   name: Deploy to Server
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
+  #     - name: Install sshpass
+  #       run: sudo apt-get install -y sshpass
 
-      - name: Download backend JAR
-        uses: actions/download-artifact@v2
-        with:
-          name: backend-jar
-          path: xm-animal-manager/springboot/target
+  #     - name: Download backend JAR
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: backend-jar
+  #         path: xm-animal-manager/springboot/target
 
-      - name: Download frontend build
-        uses: actions/download-artifact@v2
-        with:
-          name: frontend-build
-          path: xm-animal-manager/vue/dist
+  #     - name: Download frontend build
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: frontend-build
+  #         path: xm-animal-manager/vue/dist
       
       # - name: Deploy to Server
       #   run: |
