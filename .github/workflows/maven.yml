@@ -385,8 +385,8 @@ jobs:
       
       - name: Deploy to Server
         run: |
-          sshpass -p 'Ly13579.' scp xm-animal-manager/springboot/target/*.jar luyou@106.75.9.111:/path/to/backend/
-          sshpass -p 'Ly13579.' scp -r xm-animal-manager/vue/dist/* luyou@106.75.9.111:/path/to/frontend/
+          sshpass -p 'Ly13579.' scp xm-animal-manager/springboot/target/*.jar luyou@192.168.56.1:/D/to/backend/
+          sshpass -p 'Ly13579.' scp -r xm-animal-manager/vue/dist/* luyou@192.168.56.1:/D/to/frontend/
           
           # Optional: Restart the backend service if needed
-          sshpass -p 'Ly13579.' ssh luyou@106.75.9.111 'sudo systemctl restart my-backend-service'
+          sshpass -p 'Ly13579.' ssh luyou@192.168.56.1 'sudo systemctl restart my-backend-service'
