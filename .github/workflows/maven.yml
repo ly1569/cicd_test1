@@ -355,7 +355,6 @@ jobs:
           cd xm-animal-manager/vue  # 进入前端项目目录
           npm install
           npm run build
-
       - name: Save frontend build artifact
         uses: actions/upload-artifact@v2
         with:
@@ -368,6 +367,9 @@ jobs:
     name: Deploy to Server
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
       
       - name: Download backend JAR
         uses: actions/download-artifact@v2
@@ -382,25 +384,9 @@ jobs:
           path: xm-animal-manager/vue/dist
       
       - name: Deploy to Server
-        # run: |
-        #   scp xm-animal-manager/springboot/target/*.jar 106.75.9.111@root:/path/to/backend/
-        #   scp -r xm-animal-manager/vue/dist/* 757815670@qq.com:/path/to/frontend/
-          
-        #   # Optional: Restart the backend service if needed
-        #   ssh 757815670@qq.com 'sudo systemctl restart my-backend-service'
-        # run: |
-        #       scp xm-animal-manager/springboot/target/*.jar root@106.75.9.111:/path/to/backend/
-        #       scp -r xm-animal-manager/vue/dist/* root@106.75.9.111:/path/to/frontend/
-              
-        #       # Optional: Restart the backend service if needed
-        #       echo "lagou123456789!" | sshpass -p - ssh root@106.75.9.111 -p 22 'sudo systemctl restart your_backend_service'
-
-      - name: Deploy to Server
         run: |
-          sshpass -p 'Ly13579.' scp xm-animal-manager/springboot/target/*.jar luyou@192.168.56.1:/D/to/backend/
-          sshpass -p 'Ly13579.' scp -r xm-animal-manager/vue/dist/* luyou@192.168.56.1:/path/to/frontend/
+          sshpass -p 'Ly13579.' scp xm-animal-manager/springboot/target/*.jar luyou@106.75.9.111:/path/to/backend/
+          sshpass -p 'Ly13579.' scp -r xm-animal-manager/vue/dist/* luyou@106.75.9.111:/path/to/frontend/
           
           # Optional: Restart the backend service if needed
-          sshpass -p 'Ly13579.' ssh luyou@192.168.56.1 'sudo systemctl restart my-backend-service'
-
-
+          sshpass -p 'Ly13579.' ssh luyou@106.75.9.111 'sudo systemctl restart my-backend-service'
